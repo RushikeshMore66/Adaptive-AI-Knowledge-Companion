@@ -8,4 +8,4 @@ wheels/
 
 # Virtual environments
 .venv
-backend/.env
+vector_store

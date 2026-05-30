@@ -1,4 +1,3 @@
-from pydantic import FilePath
 import os
 
 from fastapi import APIRouter, UploadFile, File
@@ -8,6 +7,7 @@ from app.rag.vector_store import create_vector_store
 
 router = APIRouter()
 UPLOAD_DIR = "uploads"
+os.makedirs(UPLOAD_DIR, exist_ok=True)  # Ensure upload dir exists
 
 @router.post("/upload-pdf")
 async def upload_pdf(file: UploadFile = File(...)):
@@ -20,5 +20,4 @@ async def upload_pdf(file: UploadFile = File(...)):
     create_vector_store(chunks)
 
     return {"message": "PDF uploaded successfully",
-            "chunks_added": len(chunks)}
-    
+            "chunks_added": len(chunks)}

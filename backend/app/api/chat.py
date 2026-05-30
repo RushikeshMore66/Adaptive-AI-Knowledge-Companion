@@ -1,4 +1,3 @@
-from fastapi.openapi import docs
 from fastapi import APIRouter
 from pydantic import BaseModel
 
@@ -8,21 +7,19 @@ from app.llm.groq_client import llm
 router = APIRouter()
 
 class ChatRequest(BaseModel):
-    questions: 
-    
-@router.post("/chat")
+    question: str
 
+@router.post("/chat")
 async def chat(request: ChatRequest):
 
     vector_store = load_vector_store()
-    retriver = vector_store.as_retriever(
-
-        search_kwargs={"k": 3} # 3 similar chunks
+    retriever = vector_store.as_retriever(
+        search_kwargs={"k": 3}  # 3 similar chunks
     )
 
-    docs = retriver.get_relevant_documents(request.questions)
+    docs = retriever.invoke(request.question)
     context = "\n\n".join(doc.page_content for doc in docs)
-    
+
     prompt = f"""
     Answer the question using the context below.
 
@@ -34,4 +31,4 @@ async def chat(request: ChatRequest):
     """
 
     response = llm.invoke(prompt)
-    return {"answer": response.content}
+    return {"answer": response.content}

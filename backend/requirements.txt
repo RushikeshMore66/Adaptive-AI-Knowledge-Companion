@@ -4,9 +4,12 @@ langchain
 langchain-community
 langchain-core
 langchain-groq
+langchain-huggingface
+langchain-text-splitters
+langchain-chroma
 chromadb
 pypdf
 python-multipart
 sentence-transformers
 tiktoken
-python-dotenv
+python-dotenv

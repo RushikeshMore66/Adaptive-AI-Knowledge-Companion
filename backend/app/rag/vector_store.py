@@ -12,14 +12,13 @@ def create_vector_store(chunks: list[Document]):
         embedding=embedding_model,
         persist_directory=VECTOR_DB_PATH,
     )
-
-    vector_store.persist()
-
+    # Note: .persist() is deprecated in newer Chroma versions;
+    # persistence happens automatically via persist_directory.
     return vector_store
 
 
 def load_vector_store():
     return Chroma(
         persist_directory=VECTOR_DB_PATH,
-        embedding=embedding_model
-    )
+        embedding_function=embedding_model
+    )
