@@ -68,9 +68,8 @@ export function MessageInput({ onSend, isStreaming, onStop }: Props) {
           className={cn(
             'flex-1 resize-none bg-transparent text-sm text-foreground',
             'placeholder:text-foreground/30 outline-none',
-            'min-h-[28px] max-h-[200px] py-1 leading-relaxed'
+            'min-h-[28px] max-h-[200px] py-1 leading-relaxed h-auto'
           )}
-          style={{ height: 'auto' }}
         />
 
         {/* Voice */}

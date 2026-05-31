@@ -1,5 +1,4 @@
-
-prompt:"""
+prompt = """
 Generate report including:
 
 Overall Score

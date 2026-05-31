@@ -12,4 +12,5 @@ pypdf
 python-multipart
 sentence-transformers
 tiktoken
-python-dotenv
+python-dotenv
+pydantic-settings

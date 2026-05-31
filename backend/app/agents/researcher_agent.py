@@ -1,10 +1,9 @@
-from openai.types.responses import response
-from tools.web_search import search_web
-from llm.groq_client import llm
+from app.tools.web_search import search_web
+from app.llm.groq_client import llm
 
 def researcher_agent(state):
     
-    query = state["message"]
+    query = state.get("message","")
     search_result = search_web(query)
 
     prompt = f"""

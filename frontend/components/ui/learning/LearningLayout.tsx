@@ -129,7 +129,7 @@ export function LearningHub() {
                     </div>
                     <div className="flex items-center gap-2 flex-shrink-0">
                       <div className="w-16 h-1.5 rounded-full bg-border overflow-hidden">
-                        <div className="h-full bg-danger rounded-full" style={{ width: `${t.score}%` }} />
+                        <motion.div className="h-full bg-danger rounded-full" style={{ width: `${t.score}%` }} />
                       </div>
                       <span className="text-xs font-semibold text-danger tabular-nums w-6">{t.score}</span>
                     </div>

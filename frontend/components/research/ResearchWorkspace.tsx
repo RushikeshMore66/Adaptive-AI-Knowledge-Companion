@@ -45,10 +45,18 @@ function SourceCard({ source, isSelected, onToggle }: {
   onToggle: () => void
 }) {
   return (
-    <button
+    <div
+      role="button"
+      tabIndex={0}
       onClick={onToggle}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          onToggle()
+        }
+      }}
       className={cn(
-        'w-full text-left rounded-lg border p-3 transition-all',
+        'w-full text-left rounded-lg border p-3 transition-all cursor-pointer select-none',
         isSelected ? 'border-primary bg-primary-subtle shadow-sm' : 'border-border bg-surface hover:border-border-strong hover:shadow-sm'
       )}
     >
@@ -68,13 +76,16 @@ function SourceCard({ source, isSelected, onToggle }: {
               {Math.round(source.relevanceScore * 100)}% relevant
             </span>
             <a href={source.url} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()}
-              className="text-foreground/30 hover:text-primary transition-colors">
+              className="text-foreground/30 hover:text-primary transition-colors"
+              title="Open source link in new tab"
+              aria-label="Open source link in new tab"
+            >
               <ExternalLink className="h-3 w-3" />
             </a>
           </div>
         </div>
       </div>
-    </button>
+    </div>
   )
 }
 

@@ -1,10 +1,10 @@
 from app.agents.tutor_agent import tutor_agent
-from app.agents.research_agent import research_agent
+from app.agents.researcher_agent import researcher_agent
 from app.agents.hybrid_agent import hybrid_agent
 
 AGENTS = {
     "tutor": tutor_agent,
-    "researcher": research_agent,
+    "researcher": researcher_agent,
     "hybrid": hybrid_agent,
 }
 

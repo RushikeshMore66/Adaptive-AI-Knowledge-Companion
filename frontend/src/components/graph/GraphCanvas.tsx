@@ -25,9 +25,9 @@ function KnowledgeNode({ data }: { data: { label: string; type: string; masteryS
   const style = typeStyles[data.type] ?? typeStyles.skill
 
   return (
-    <div className="relative" style={{ minWidth: 110 }}>
+    <div className="relative min-w-[110px]">
       <Handle type="target" position={Position.Left} style={{ width: 6, height: 6, background: style.border }} />
-      <div
+      <motion.div
         className={cn(
           'rounded-lg border px-3 py-2 shadow-sm cursor-pointer transition-all hover:shadow-md',
           data.isWeak && 'ring-2 ring-danger/30',
@@ -35,18 +35,18 @@ function KnowledgeNode({ data }: { data: { label: string; type: string; masteryS
         )}
         style={{ borderColor: style.border, backgroundColor: style.bg }}
       >
-        <p className="text-[11px] font-semibold leading-snug" style={{ color: style.text }}>
+        <motion.p className="text-[11px] font-semibold leading-snug" style={{ color: style.text }}>
           {data.label}
-        </p>
+        </motion.p>
         {data.masteryScore !== undefined && (
           <div className="mt-1 h-1 rounded-full bg-white/60 overflow-hidden">
-            <div className="h-full rounded-full" style={{ width: `${data.masteryScore}%`, backgroundColor: style.text }} />
+            <motion.div className="h-full rounded-full" style={{ width: `${data.masteryScore}%`, backgroundColor: style.text }} />
           </div>
         )}
         {data.masteryScore !== undefined && (
-          <p className="text-[9px] mt-0.5" style={{ color: style.text + '99' }}>{data.masteryScore}%</p>
+          <motion.p className="text-[9px] mt-0.5" style={{ color: style.text + '99' }}>{data.masteryScore}%</motion.p>
         )}
-      </div>
+      </motion.div>
       <Handle type="source" position={Position.Right} style={{ width: 6, height: 6, background: style.border }} />
     </div>
   )
@@ -188,7 +188,7 @@ export function KnowledgeGraphStudio() {
                     <span className="font-medium text-foreground">{(selectedNode.data as { masteryScore: number }).masteryScore}%</span>
                   </div>
                   <div className="h-1.5 rounded-full bg-border overflow-hidden">
-                    <div className="h-full rounded-full bg-primary" style={{ width: `${(selectedNode.data as { masteryScore: number }).masteryScore}%` }} />
+                    <motion.div className="h-full rounded-full bg-primary" style={{ width: `${(selectedNode.data as { masteryScore: number }).masteryScore}%` }} />
                   </div>
                 </div>
               )}

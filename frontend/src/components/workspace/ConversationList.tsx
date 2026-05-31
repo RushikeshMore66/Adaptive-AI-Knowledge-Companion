@@ -101,6 +101,8 @@ export function ConversationList() {
                     <button
                       onClick={(e) => { e.stopPropagation(); deleteConversation(conv.id) }}
                       className="opacity-0 group-hover:opacity-100 flex-shrink-0 text-foreground/30 hover:text-danger transition-opacity"
+                      title="Delete conversation"
+                      aria-label="Delete conversation"
                     >
                       <Trash2 className="h-3 w-3" />
                     </button>

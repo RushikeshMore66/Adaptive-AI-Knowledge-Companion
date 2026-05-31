@@ -155,7 +155,7 @@ function SessionView({ onComplete }: { onComplete: () => void }) {
         <div className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /><span>4:23 remaining</span></div>
       </div>
       <div className="h-1.5 rounded-full bg-border overflow-hidden">
-        <div className="h-full bg-primary rounded-full" style={{ width: '40%' }} />
+        <div className="h-full bg-primary rounded-full w-[40%]" />
       </div>
 
       {/* Question */}
@@ -228,7 +228,7 @@ function ReportView({ onReset }: { onReset: () => void }) {
           <BarChart3 className="h-8 w-8 text-primary" />
         </div>
         <h2 className="text-lg font-semibold text-foreground">Interview Complete</h2>
-        <p className="text-sm text-foreground/50 mt-0.5">Here's your detailed performance report</p>
+        <p className="text-sm text-foreground/50 mt-0.5">Here&apos;s your detailed performance report</p>
         <div className="flex justify-center gap-6 mt-4">
           <div><p className="text-2xl font-bold text-primary">7.8</p><p className="text-xs text-foreground/50">Overall Score</p></div>
           <div><p className="text-2xl font-bold text-success">82%</p><p className="text-xs text-foreground/50">Readiness</p></div>

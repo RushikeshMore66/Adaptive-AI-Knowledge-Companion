@@ -14,7 +14,7 @@ class UserMemory(Base):
 
     
 class LearningProgress(Base):
-     __tablename__ = "learning_progress"
+    __tablename__ = "learning_progress"
 
     id = Column(
         Integer,

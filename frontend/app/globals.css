@@ -185,4 +185,9 @@
     0%, 100% { opacity: 1; }
     50% { opacity: 0.4; }
   }
+
+  .topbar-layout {
+    left: var(--sidebar-current-width, 240px);
+    transition: left 0.2s ease;
+  }
 }

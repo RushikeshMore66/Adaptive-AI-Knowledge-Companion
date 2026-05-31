@@ -21,7 +21,7 @@ function VoiceOrbCore({ state, color }: { state: string; color: string }) {
   const isThinking = state === 'thinking'
 
   return (
-    <div className="relative flex items-center justify-center" style={{ width: 160, height: 160 }}>
+    <div className="relative flex items-center justify-center w-40 h-40">
       {/* Outer pulse rings */}
       {isListening && (
         <>
@@ -70,7 +70,7 @@ function VoiceOrbCore({ state, color }: { state: string; color: string }) {
         }}
       >
         {/* Inner glow */}
-        <div className="absolute inset-4 rounded-full opacity-40" style={{ background: `radial-gradient(circle, white, transparent)` }} />
+        <motion.div className="absolute inset-4 rounded-full opacity-40" style={{ background: 'radial-gradient(circle, white, transparent)' }} />
 
         {/* Icon */}
         <div className="relative z-10">
@@ -180,15 +180,21 @@ export function VoiceAssistant() {
                 <button
                   onClick={() => endSession()}
                   className="flex h-12 w-12 items-center justify-center rounded-full bg-danger/10 text-danger hover:bg-danger/20 transition-colors"
+                  title="End Session"
+                  aria-label="End Session"
                 >
                   <Square className="h-5 w-5 fill-current" />
                 </button>
-                <button
-                  className="flex h-16 w-16 items-center justify-center rounded-full shadow-lg transition-all hover:scale-105"
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.96 }}
+                  className="flex h-16 w-16 items-center justify-center rounded-full shadow-lg transition-all"
                   style={{ backgroundColor: activeColor }}
+                  title="Mute microphone"
+                  aria-label="Mute microphone"
                 >
                   <MicOff className="h-7 w-7 text-white" />
-                </button>
+                </motion.button>
               </>
             ) : (
               <motion.button
@@ -200,6 +206,8 @@ export function VoiceAssistant() {
                   backgroundColor: activeColor,
                   boxShadow: `0 8px 32px ${activeColor}40`,
                 }}
+                title="Start voice session"
+                aria-label="Start voice session"
               >
                 <Mic className="h-7 w-7 text-white" />
               </motion.button>

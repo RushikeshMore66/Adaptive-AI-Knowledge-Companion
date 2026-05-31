@@ -16,6 +16,6 @@ class InterviewState:
 
     score: float = 0
 
-    weaknesses: List[str] = None
+    weaknesses: Optional[List[str]] = None
 
-    strengths: List[str] = None
+    strengths: Optional[List[str]] = None

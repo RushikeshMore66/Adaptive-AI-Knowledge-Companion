@@ -187,7 +187,7 @@ export function HomeDashboard() {
               {greeting}, {user?.name?.split(' ')[0] ?? 'there'} 👋
             </h1>
             <p className="mt-0.5 text-sm text-foreground/50">
-              Here's your learning progress and today's priorities.
+              Here&apos;s your learning progress and today&apos;s priorities.
             </p>
           </div>
           <div className="flex items-center gap-2">

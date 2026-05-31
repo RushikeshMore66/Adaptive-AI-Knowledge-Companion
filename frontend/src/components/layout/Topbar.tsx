@@ -45,9 +45,7 @@ export function Topbar() {
   }, [])
 
   return (
-    <header className="fixed right-0 top-0 z-30 flex h-14 items-center gap-4 border-b border-border bg-background/80 backdrop-blur-sm px-4"
-      style={{ left: 'var(--sidebar-current-width, 240px)', transition: 'left 0.2s ease' }}
-    >
+    <header className="fixed right-0 top-0 z-30 flex h-14 items-center gap-4 border-b border-border bg-background/80 backdrop-blur-sm px-4 topbar-layout">
       {/* Page title */}
       <div className="flex-1 min-w-0">
         <h1 className="text-sm font-semibold text-foreground truncate">{title}</h1>
